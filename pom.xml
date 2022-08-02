@@ -17,12 +17,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.10.2</version>
-        </dependency>
-
         <!-- JUNIT 5에서 assertThat을 쓸 수 있게 해준다. -->
         <dependency>
             <groupId>org.assertj</groupId>
@@ -60,6 +54,21 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.13.3</version>
         </dependency>
+
+        <!-- 컴포넌트 스캔 reflections -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
 
     </dependencies>
 

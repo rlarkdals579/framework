@@ -1,6 +1,8 @@
 package com.ll.exam;
 
 import com.ll.exam.article.controller.ArticleController;
+import com.ll.exam.article.service.ArticleService;
+import com.ll.exam.home.controller.HomeController;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,24 +19,54 @@ public class AppTest {
 
     @Test
     public void ioc__articleController() {
-        ArticleController articleController = Container.getArticleController();
+        ArticleController articleController = Container.getObj(ArticleController.class);
 
         assertThat(articleController).isNotNull();
     }
 
     @Test
-    public void ioc__articleController__singleton() {
-        ArticleController articleController1 = Container.getArticleController();
-        ArticleController articleController2 = Container.getArticleController();
+    public void ioc__articleController__싱글톤() {
+        ArticleController articleController1 = Container.getObj(ArticleController.class);
+        ArticleController articleController2 = Container.getObj(ArticleController.class);
 
         assertThat(articleController2).isEqualTo(articleController1);
     }
 
     @Test
-    public void scanning__Controllers() {
+    public void ioc__homeController() {
+        HomeController homeController = Container.getObj(HomeController.class);
+
+        assertThat(homeController).isNotNull();
+    }
+
+    @Test
+    public void ioc__homeController__singleton() {
+        HomeController homeController1 = Container.getObj(HomeController.class);
+        HomeController homeController2 = Container.getObj(HomeController.class);
+
+        assertThat(homeController2).isEqualTo(homeController1);
+    }
+
+    @Test
+    public void scan__Controllers() {
         List<String> names = Container.getControllerNames();
 
         assertThat(names).contains("home");
         assertThat(names).contains("article");
+    }
+
+    @Test
+    public void ioc__articleService() {
+        ArticleService articleService = Container.getObj(ArticleService.class);
+
+        assertThat(articleService).isNotNull();
+    }
+
+    @Test
+    public void ioc__articleService__singleton() {
+        ArticleService articleService1 = Container.getObj(ArticleService.class);
+        ArticleService articleService2 = Container.getObj(ArticleService.class);
+
+        assertThat(articleService2).isEqualTo(articleService1);
     }
 }
