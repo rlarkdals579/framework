@@ -17,6 +17,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+
         <!-- JUNIT 5에서 assertThat을 쓸 수 있게 해준다. -->
         <dependency>
             <groupId>org.assertj</groupId>
